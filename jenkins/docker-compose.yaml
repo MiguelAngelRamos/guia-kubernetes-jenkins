@@ -1,0 +1,16 @@
+services:
+  jenkins:
+    restart: always
+    user: root
+    image: docker/jenkins
+    ports:
+      - 8080:8080
+      - 50000:50000
+    container_name: jenkinsdocker
+    volumes:
+      - /home/miguel/Documentos/jenkins/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - net
+networks:
+  net:
